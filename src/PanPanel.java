@@ -9,7 +9,7 @@ public class PanPanel extends JPanel implements MouseListener {
     private Color backgroundColor = new Color(222, 198, 178);
     private Color lineColor = Color.black;
     private boolean flag = false; // false: black
-    private int[][] board = new int[14][14]; // 14x14 board
+    private int[][] board = new int[15][15]; // 15x15 board
     public int count = 0;
     static private Image blackStoneImage = Toolkit.getDefaultToolkit().getImage("Img/blackS.png");
     static private Image whiteStoneImage = Toolkit.getDefaultToolkit().getImage("Img/whiteS.png");
@@ -19,7 +19,7 @@ public class PanPanel extends JPanel implements MouseListener {
         addMouseListener(this);
         setBorder(new LineBorder(Color.black, 5));
         setLayout(null);
-        setBounds(50, 50, 700, 700);
+        setBounds(50, 50, 750, 750); // 15 * 50 = 750
         setBackground(backgroundColor);
     }
 
@@ -58,10 +58,19 @@ public class PanPanel extends JPanel implements MouseListener {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.setColor(lineColor);
-        for (int i = 0; i < 14; i++) {
-            for (int j = 0; j < 14; j++) {
-                g.drawLine(i * 50 + 25, 25, i * 50 + 25, 675);
-                g.drawLine(25, j * 50 + 25, 675, j * 50 + 25);
+        for (int i = 0; i < 15; i++) {
+            for (int j = 0; j < 15; j++) {
+                g.drawLine(i * 50 + 25, 25, i * 50 + 25, 725); // 15 * 50 - 25 = 725
+                g.drawLine(25, j * 50 + 25, 725, j * 50 + 25);
+            }
+        }
+
+        // Draw star points
+        int[] starPoints = {3, 7, 11};
+        g.setColor(Color.black);
+        for (int i : starPoints) {
+            for (int j : starPoints) {
+                g.fillOval(i * 50 + 20, j * 50 + 20, 10, 10); // Adjust the position and size of the star points
             }
         }
 
@@ -83,13 +92,13 @@ public class PanPanel extends JPanel implements MouseListener {
         for (int i = 1; i < 5; i++) {
             int ny = y + dy * i;
             int nx = x + dx * i;
-            if (ny < 0 || ny >= 14 || nx < 0 || nx >= 14 || board[ny][nx] != player) break;
+            if (ny < 0 || ny >= 15 || nx < 0 || nx >= 15 || board[ny][nx] != player) break;
             count++;
         }
         for (int i = 1; i < 5; i++) {
             int ny = y - dy * i;
             int nx = x - dx * i;
-            if (ny < 0 || ny >= 14 || nx < 0 || nx >= 14 || board[ny][nx] != player) break;
+            if (ny < 0 || ny >= 15 || nx < 0 || nx >= 15 || board[ny][nx] != player) break;
             count++;
         }
         return count >= 5;
@@ -97,8 +106,8 @@ public class PanPanel extends JPanel implements MouseListener {
 
     public void resetGame() {
         stones.clear();
-        for (int i = 0; i < 14; i++) {
-            for (int j = 0; j < 14; j++) {
+        for (int i = 0; i < 15; i++) {
+            for (int j = 0; j < 15; j++) {
                 board[i][j] = 0;
             }
         }

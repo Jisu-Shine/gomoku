@@ -69,7 +69,6 @@ public class Frame extends JFrame implements ActionListener, MouseListener {
             
             if (response == JOptionPane.YES_OPTION) {
                 panPanel.resetGame();
-
                 repaint();
             }
         }
@@ -103,3 +102,4 @@ public class Frame extends JFrame implements ActionListener, MouseListener {
     @Override
     public void mouseExited(MouseEvent e) {}
 }
+
