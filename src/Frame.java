@@ -33,7 +33,7 @@ public class Frame extends JFrame implements ActionListener, MouseListener {
             buttons[i].setBackground(Color.white);
             buttons[i].setForeground(Color.black);
         }
-        buttons[0].setText("ReStart");
+        buttons[0].setText("Restart");
         for (int i = 0; i < buttons.length; i++) {
             buttons[i].setFont(font);
             menu.add(buttons[i]);
