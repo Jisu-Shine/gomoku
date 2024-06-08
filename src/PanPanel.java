@@ -120,9 +120,9 @@ public class PanPanel extends JPanel implements MouseListener {
 
         public void draw(Graphics g) {
             if (color == Color.black) {
-                g.drawImage(blackStoneImage, x * 50 + 10, y * 50 + 5, 30, 30, null);
+                g.drawImage(blackStoneImage, x * 50 , y * 50 , 50, 50, null);
             } else if (color == Color.white) {
-                g.drawImage(whiteStoneImage, x * 50 + 10, y * 50 + 5, 30, 30, null);
+                g.drawImage(whiteStoneImage, x * 50 , y * 50 , 50, 50, null);
             }
         }
     }
