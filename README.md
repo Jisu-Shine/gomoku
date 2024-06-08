@@ -17,9 +17,9 @@
 1. download our project!
 
    
-   `
+   ```
    git clone https://github.com/Jisu-Shine/gomoku.git
-   `
+   ```
 
   
 3. game start
