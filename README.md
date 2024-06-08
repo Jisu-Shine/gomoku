@@ -9,6 +9,8 @@
 
 ## 📝 UML diagram of classes and interfaces
 
-## 📎 github link
+## 🔗 github link
+<https://github.com/Jisu-Shine/gomoku.git>
+  
 
 ## 📚 User's guide: how to use your program
