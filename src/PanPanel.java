@@ -3,19 +3,19 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 public class PanPanel extends JPanel implements MouseListener {
-    Color backgroundColor = new Color(222, 198, 178);
-    Color lineColor = Color.black;
+    private Color backgroundColor = new Color(222, 198, 178);
+    private Color lineColor = Color.black;
+    private boolean flag = false; // false: black
+    private int[][] board = new int[14][14]; // 14x14 board
+    public int count = 0;
+    static private Image blackStoneImage = Toolkit.getDefaultToolkit().getImage("Img/blackS.png");
+    static private Image whiteStoneImage = Toolkit.getDefaultToolkit().getImage("Img/whiteS.png");
+    private ArrayList<Stone> stones = new ArrayList<>();
 
-    boolean click = false;
-    boolean flag = true; // true: black
-    int[][] board = new int[14][14]; // 14x14 board
-    int count = 0;
-    int Bscore = 0;
-    int Wscore = 0;
-
-    PanPanel() {
+    public PanPanel() {
         addMouseListener(this);
         setBorder(new LineBorder(Color.black, 5));
         setLayout(null);
@@ -28,7 +28,6 @@ public class PanPanel extends JPanel implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        click = true;
         int x = e.getX() / 50;
         int y = e.getY() / 50;
 
@@ -36,9 +35,10 @@ public class PanPanel extends JPanel implements MouseListener {
             board[y][x] = flag ? 1 : -1;
             flag = !flag;
             count++;
+            stones.add(new Stone(x, y, flag ? Color.black : Color.white));
             repaint();
             if (checkWin(y, x)) {
-                String winner = board[y][x] == 1 ? "Black" : "White";
+                String winner = flag ? "Black" : "White";
                 JOptionPane.showMessageDialog(null, "GAME OVER\n Winner : " + winner);
                 resetGame();
             }
@@ -62,14 +62,11 @@ public class PanPanel extends JPanel implements MouseListener {
             for (int j = 0; j < 14; j++) {
                 g.drawLine(i * 50 + 25, 25, i * 50 + 25, 675);
                 g.drawLine(25, j * 50 + 25, 675, j * 50 + 25);
-                if (board[j][i] == 1) {
-                    g.setColor(Color.black);
-                    g.fillOval(i * 50 + 15, j * 50 + 15, 20, 20);
-                } else if (board[j][i] == -1) {
-                    g.setColor(Color.white);
-                    g.fillOval(i * 50 + 15, j * 50 + 15, 20, 20);
-                }
             }
+        }
+
+        for (Stone stone : stones) {
+            stone.draw(g);
         }
     }
 
@@ -99,13 +96,34 @@ public class PanPanel extends JPanel implements MouseListener {
     }
 
     public void resetGame() {
+        stones.clear();
         for (int i = 0; i < 14; i++) {
             for (int j = 0; j < 14; j++) {
                 board[i][j] = 0;
             }
         }
-        flag = true;
+        flag = false;
         count = 0;
         repaint();
+    }
+
+    private static class Stone {
+        private int x;
+        private int y;
+        private Color color;
+
+        public Stone(int x, int y, Color color) {
+            this.x = x;
+            this.y = y;
+            this.color = color;
+        }
+
+        public void draw(Graphics g) {
+            if (color == Color.black) {
+                g.drawImage(blackStoneImage, x * 50 + 10, y * 50 + 5, 30, 30, null);
+            } else if (color == Color.white) {
+                g.drawImage(whiteStoneImage, x * 50 + 10, y * 50 + 5, 30, 30, null);
+            }
+        }
     }
 }

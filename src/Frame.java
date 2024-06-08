@@ -10,12 +10,8 @@ public class Frame extends JFrame implements ActionListener, MouseListener {
     static JPanel menu = new JPanel();
     JButton[] buttons = new JButton[1];
     JLabel label = new JLabel();
-    static JLabel scoreBLabel = new JLabel();
-    static JLabel scoreWLabel = new JLabel();
-    static JLabel colon = new JLabel();
     static Font font = new Font("맑은 고딕", Font.BOLD, 22);
 
-    JLabel score = new JLabel();
     PanPanel panPanel = new PanPanel();
     JLabel turn = new JLabel();
 
@@ -46,22 +42,6 @@ public class Frame extends JFrame implements ActionListener, MouseListener {
         }
 
         setPreferredSize(new Dimension(1200, 950));//프레임 크기
-        scoreWLabel.setFont(new Font("맑은고딕", Font.BOLD,35));
-        scoreBLabel.setFont(new Font("맑은고딕", Font.BOLD,35));
-        colon.setFont(font);
-        colon.setForeground(Color.gray);
-        scoreWLabel.setForeground(Color.white);
-        scoreBLabel.setBounds(90, 600, 130, 50);
-        colon.setBounds(133, 600, 20,50);
-        scoreWLabel.setBounds(160, 600, 50, 50);
-
-        add(scoreBLabel);
-        add(scoreWLabel);
-        add(colon);
-
-        // scoreBLabel.setText(String.valueOf(panPanel.Bscore));
-        // colon.setText(":");
-        // scoreWLabel.setText(String.valueOf(panPanel.Wscore));
 
         turn.setBounds(105, 738, 130, 50);
         turn.setFont(font);
@@ -90,9 +70,6 @@ public class Frame extends JFrame implements ActionListener, MouseListener {
             if (response == JOptionPane.YES_OPTION) {
                 panPanel.resetGame();
 
-                scoreBLabel.setText(String.valueOf(panPanel.Bscore));
-                scoreWLabel.setText(String.valueOf(panPanel.Wscore));
-
                 repaint();
             }
         }
@@ -117,9 +94,6 @@ public class Frame extends JFrame implements ActionListener, MouseListener {
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        scoreBLabel.setText(String.valueOf(panPanel.Bscore));
-        colon.setText(":");
-        scoreWLabel.setText(String.valueOf(panPanel.Wscore));
         repaint();
     }
 
