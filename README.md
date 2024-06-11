@@ -16,12 +16,26 @@
 ## 📚 User's guide: how to use your program
 1. download our project!
 
-   
+
    ```
    git clone https://github.com/Jisu-Shine/gomoku.git
    ```
 
   
-3. game start
+2. game start
    - run Main.java
-   - enjoy the playing!
+   - The game screen turns on
+     <img width="1184" alt="스크린샷 2024-06-11 오후 4 20 31" src="https://github.com/Jisu-Shine/gomoku/assets/154987383/dc64cbde-5c21-4782-a76b-a103f1dc7ee9">
+   - The game screen turns on.
+3. game rules
+   - Black stone first
+   - The first person to place five stones in a row, either vertically, horizontally, or diagonally, wins.
+     <img width="1174" alt="스크린샷 2024-06-11 오후 4 23 10" src="https://github.com/Jisu-Shine/gomoku/assets/154987383/0f5ea97f-4fe9-4847-92a7-c55ae678baef">
+   - Black stone wins!
+     <img width="1177" alt="스크린샷 2024-06-11 오후 4 29 22" src="https://github.com/Jisu-Shine/gomoku/assets/154987383/0e1633d4-37cd-4959-bd3f-753a969d0a92">
+4. game restart
+   - if you want the game restart, you click the restart button on the top left
+   - click yes -> restart / no -> continue the current game
+     <img width="1186" alt="스크린샷 2024-06-11 오후 4 33 14" src="https://github.com/Jisu-Shine/gomoku/assets/154987383/f54d0689-7b39-48cf-8fe4-5758afe5c080">
+
+
