@@ -23,9 +23,9 @@
 
   
 3. game start
-   '''
+   ```
    run Main.java
-   '''
-   '''
+   ```
+   ```
    enjoy the playing!
-   '''
+   ```
