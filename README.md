@@ -24,7 +24,6 @@
    - run Main.java
    - The game screen turns on
      <img width="1184" alt="스크린샷 2024-06-11 오후 4 20 31" src="https://github.com/Jisu-Shine/gomoku/assets/154987383/dc64cbde-5c21-4782-a76b-a103f1dc7ee9">
-   - The game screen turns on.
 3. game rules
    - Black stone first
    - The first person to place five stones in a row, either vertically, horizontally, or diagonally, wins.
