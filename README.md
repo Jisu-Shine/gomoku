@@ -10,8 +10,6 @@
 ## 📝 UML diagram of classes and interfaces
 ![gomok drawio](https://github.com/Jisu-Shine/gomoku/assets/91535597/18675b38-3bde-4097-b1da-d5ec82f60507)
 
-## 🔗 github link
-<https://github.com/Jisu-Shine/gomoku.git>
   
 ## 📚 User's guide: how to use your program
 1. download our project!
